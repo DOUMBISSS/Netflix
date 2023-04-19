@@ -19,12 +19,14 @@ const showCart =()=>{
 }
 
     return (
-      <div>
-                <Marquee className="marquee" speed={80}>
-                        -50% sur votre premier achat sur notre collection df
-                 </Marquee>
-
+        <div>
                <Navbar/>
+               <div className='hero--static--image'>
+
+               </div>
+               <div className='slider__part'>
+
+                </div>
         </div>
 
     );

@@ -43,7 +43,7 @@ export default function NavLogin ({nav,setNav}) {
                             </div> */}
                             {/* <Link className='liste' to='/loginPage'><i className="fa-solid fa-user"></i> Mon compte</Link> */}
                               <div className="user__part">
-                                <p className='na'><i class="fa-solid fa-user"></i>  {JSON.parse(auth).email}</p>
+                                {/* <p className='na'><i class="fa-solid fa-user"></i>  {JSON.parse(auth).email}</p> */}
                               </div>
                             <div className="user__part">
                               <Link to='/userDetail' className='na'> <i class="fa-solid fa-user"></i> Votre Compte</Link>

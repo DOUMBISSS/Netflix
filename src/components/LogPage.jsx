@@ -1,22 +1,18 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../Pages/Navbar";
 import Login from "./Login";
+import Nav from "./Nav";
 import Register from "./Register";
 
 
 export default function LogPage (){
-    const [signUp,setSignUp] = useState(true);
-    const [user,setUser] = useState("");
-    const navigate = useNavigate();
-
-    // const auth = localStorage.getItem("user");
 
 
     return (
         <div>
             <div className="log__page">
-            <Navbar/>
+            <Nav/>
             <div className="login--container">
             <div className='container--login'>
                     <h1 className="container__login__header">Unlimited movies, TV shows, and more.</h1>
@@ -30,7 +26,7 @@ export default function LogPage (){
                         </div>
                     </div>
                     <div className="button--block--right">
-                        <button className="btn__start">Get Started </button>
+                        <Link to='/Accueil'><button className="btn__start">Get Started </button></Link>
                     </div>
                     </div>
             </div>

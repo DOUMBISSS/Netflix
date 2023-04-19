@@ -54,29 +54,24 @@ const affi = ()=> {
       <div>
       <header>
 
-        { auth ? (
         <div className='navbar'>
           <div className="navbar--left">
           <div className='icon--menu' onClick={showMenu}>
                <i className="fa-solid fa-bars"></i>
                </div>
-            <div className="navbar--logo">
-              <Link to="/"> <img src={`${process.env.PUBLIC_URL}/easy.png`} alt=""/></Link>
+               <div className="navbar--logo">
+              {/* <Link to="/"> <img src={`${process.env.PUBLIC_URL}/easy.png`} alt=""/></Link> */}
+              <img src="https://cdn.futura-sciences.com/buildsv6/images/largeoriginal/0/3/0/030dc01da7_50145928_netflix-logo.jpg" alt="" />
             </div>
           </div>
           <div className="navbar--center">
             <div className="navbar--center--content">
-              <Link className='liste' to="/">Accueil</Link>
-              <Link className='liste' to='/men'> Homme</Link>
-              <Link className='liste' to='/women'> Femme</Link>
-              <Link className='liste' to='/child'>Enfant</Link>
-              <Link className='liste' to='/accessoires'>Accessoires</Link>
-              <div className="col-3 col-md-6">
-                <form class="d-flex" role="search">
-                <input class="form-control me-3" type="search" placeholder="Cherchez un produit , une marque ou une categorie..." aria-label="Search" onChange={handleSearch} value={search}/>
-                <button class="btn btn-outline-success" onClick={searching}>Search</button>
-              </form>
-              </div>
+            <Link className='liste' to="/">Accueil</Link>
+              <Link className='liste' to='/restaurant'> Séries</Link>
+              <Link className='liste' to='/chambres'> Films </Link>
+              <Link className='liste' to='/piscines'>Nouveautés</Link>
+              <Link className='liste' to='/activity'> Ma liste</Link>
+              <Link className='liste' to='/contact'> Explorer ma langue</Link>
             </div>
             <div className='logo--resp'>
               <div className="navbar--logo--resp">
@@ -89,40 +84,17 @@ const affi = ()=> {
         
           <div className="navbar--right">
           <div className="navbar--right--content">
+                          <div className='nav--items'>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            </div>
+                            <div className='nav--items'>
+                              <i class="fa-solid fa-bell"></i>
+                            </div>
                        <NavLogin nav={nav} setNav={setNav}/>
                        <Link className='liste' ><button onClick={openLog} className="btn--connexion"><i className="fa-solid fa-user"></i> Mon profil </button></Link>
                   </div>
           </div>
          </div>
-        ) : (
-          <div className='navbar'>
-          <div className="navbar--left">
-          <div className='icon--menu' onClick={showMenu}>
-               <i className="fa-solid fa-bars"></i>
-               </div>
-            <div className="navbar--logo">
-              {/* <Link to="/"> <img src={`${process.env.PUBLIC_URL}/easy.png`} alt=""/></Link> */}
-              <img src="https://cdn.futura-sciences.com/buildsv6/images/largeoriginal/0/3/0/030dc01da7_50145928_netflix-logo.jpg" alt="" />
-            </div>
-          </div>
-          <div className="navbar--center">
-            {/* <div className="navbar--center--content">
-            </div> */}
-            <div className='logo--resp'>
-              <div className="navbar--logo--resp">
-                <Link to="/"> <img src={`${process.env.PUBLIC_URL}/easy.png`} alt=""/></Link>
-              </div>
-            </div>
-          </div>
-          <div className="navbar--right">
-          <div className="navbar--right--content">
-                              <Link to='/login'><button className="btn--connexion">Sign Up</button></Link>
-                              {/* <Link className='liste' to="/">Accueil</Link>
-                              <Link className='liste' to='/men'> Homme</Link> */}
-                  </div>
-          </div>
-         </div>
-        )}
 
         <div className={display ? "menu show--menu" : "menu"}>
                     <div className='sidebar--menu'>

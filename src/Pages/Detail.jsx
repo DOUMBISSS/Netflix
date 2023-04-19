@@ -4,8 +4,6 @@ import {Link, useParams} from 'react-router-dom';
 import Footer from './Footer';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart,getNew,getProduct } from '../Redux/actions';
-import Carousel from 'react-elastic-carousel';
-import ProductCart from '../components/ProductCart';
 
 export default function Detail () {
 
@@ -42,7 +40,6 @@ export default function Detail () {
         <div className="container--header">
             {/* <h4 className="name--article">Iphone 14 Pro Max</h4> */}
           </div>
-          <ProductCart/>
               <div className="container--article">
                 <div className="container--article--left--part">
                   <div className="container--article--left--part--content">
