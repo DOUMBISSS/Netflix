@@ -1,25 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import {Routes,Route} from 'react-router-dom';
+import Contact from './Pages/Contact';
+import Detail from './Pages/Detail';
+import 'animate.css';
+import Formulaire from './Pages/Formulaire';
+import Accueil from './Pages/Accueil';
+import LogPage from './components/LogPage';
+import UserDetails from './components/UserDetails';
+import SearchingPage from './Pages/SearchingPage';
+import Login from './components/Login';
 
-function App() {
+
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <Routes>
+    <Route path="/Accueil" element={<Accueil/>}/>
+    <Route path='/contact' element={<Contact/>} />
+    <Route path='/formulaire' element={<Formulaire/>} />
+    <Route path='/detail/:id' element={<Detail/>} />
+    <Route path='/' element={<LogPage/>}/>
+    <Route path='/userDetail' element={<UserDetails/>}/>
+    <Route path='/searching' element={<SearchingPage/>}/>
+    <Route path='/login' element={<Login/>}/>
+
+  </Routes>
   );
 }
 
-export default App;
