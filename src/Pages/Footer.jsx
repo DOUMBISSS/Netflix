@@ -4,22 +4,18 @@ import React from 'react';
 export default function  Footer () {
             
 return (
-    <div>
-              <div className='footer--header'>
-                <p><i class="fa-solid fa-location-dot"></i> Cocody Angre 7eme Tranche</p>
-                <p><i class="fa-solid fa-envelope"></i> df@.com</p>
-                {/* <p><i className="fa-solid fa-user"></i> Login</p> */}
-                <p><i class="fa-brands fa-whatsapp"></i> +225 07 77 88 00 82 </p>
+    <div className='footer'>
+             <div className='footer--header'>
+                <p><i class="fa-solid fa-envelope"></i> Netflix@.com</p>
                 <p><i class="fa-brands fa-facebook"></i> Facebook</p>
                 <p><i class="fa-brands fa-instagram"></i> Instagram</p>
-                {/* <p><i class="fa-solid fa-cart-arrow-down"></i> Mon Panier</p> */}
                 
         </div>
-          <div className='footer'>
+          <div className='footers'>
           {/* <div className='right'> */}
-            <p>Copyright © 2022,DF COLLECTION </p>
+            <p>Copyright © 2022,Netflix Civ </p>
             {/* </div> */}
-      </div>
+      </div>  
     </div>
 
     );
