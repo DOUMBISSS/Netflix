@@ -1,23 +1,42 @@
-import React, { useEffect, useState } from 'react';
-import {Link} from 'react-router-dom';
+import React, { useState } from 'react';
 import 'animate.css';
 import Navbar from './Navbar';
-import { useDispatch, useSelector } from 'react-redux';
-import { Player } from 'video-react';
+import { useSelector } from 'react-redux';
 import Footer from './Footer';
 
 export default function Accueil () {
-    const dispatch = useDispatch()
-  const [display,setDisplay]= useState(false);
+    
+  const [display,setDisplay]=useState(false)
 
-  const [cart,setCart]= useState(false);
+  const showDetail = ()=> {
+    setDisplay (true)
+  }
+  const closeDetail = ()=> {
+    setDisplay (false)
+  }
 
-  const closeCart = ()=> {
-    setCart (false)
-}
-const showCart =()=>{
-    setCart (true)
-}
+const Movies = useSelector(state=>state.categoryReducer.Movies);
+
+// const options = {
+//     method: 'GET',
+//     headers: {
+//       'content-type': 'application/octet-stream',
+//       'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
+//       'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
+//     }
+//   };
+
+
+// useEffect(() => {
+//     fetch('https://moviesdatabase.p.rapidapi.com/titles/x/upcoming',options
+//     )
+//     .then((res)=>res.json())
+//     .then((Movies)=>{dispatch(getAllmovie(Movies))
+//     })
+//     .catch(e => { console.log(e)})
+//     }, [])
+
+//     console.log(Movies)
 
     return (
         <div>
@@ -65,225 +84,39 @@ const showCart =()=>{
            <div>
            <div className='slider__part'>
                 <h5 className='slider__title'>Ajouts récents</h5>
-                        <div className='slider__content'>
-                            <div className='cards'>
-                                <div className='cards__header'>
-                                <div class="ratio ratio-16x9">
-                                <iframe src="https://www.youtube.com/embed/e0K3OjNHTtA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                    </div>
+                        <div className='slider__content'onMouseOut={closeDetail}>
+                         {Movies.map((movie) => <div key={movie.id} className='cards' onMouseOver={showDetail}>
+                                    <img src={movie.img} alt="" />
+                                <div className= "card--body">
+                                <h4>{movie.title}</h4>
+                                        <div className="button__block">
+                                        <div className="button__block__content">
+                                        <div className="item__block">
+                                            <i class="fa-solid fa-play"></i>
+                                            </div>
+                                            <div className="item__block">
+                                            <i class="fa-solid fa-plus"></i>
+                                            </div>
+                                            <div className="item__block">
+                                            <i class="fa-solid fa-thumbs-up"></i>
+                                            </div>
+                                        </div>
+                                        <div className="button__block__content__right">
+                                        <div className="item__block">
+                                            <i class="fa-solid fa-chevron-down"></i>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div className='card--description'>
+                                        <p>{movie.description}</p>
+                                        <p>{movie.time}</p>
+                                        </div>
                                 </div>
-                                {/* <div className='cards__body'>
-                                    <p>DIDI B - En Haut</p>
-                                </div> */}
                             </div>
-                            <div className='cards'>
-                                <div className='cards__header'>
-                                <div class="ratio ratio-16x9">
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/8dguvuJoJ1Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                {/* <div className='cards__body'>
-                                    <p>DIDI B - En Haut</p>
-                                </div> */}
-                            </div>
-                            <div className='cards'>
-                                <div className='cards__header'>
-                                <div class="ratio ratio-16x9">
-                                <iframe src="https://www.youtube.com/embed/e0K3OjNHTtA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                {/* <div className='cards__body'>
-                                    <p>DIDI B - En Haut</p>
-                                </div> */}
-                            </div>
-                            <div className='cards'>
-                                <div className='cards__header'>
-                                <div class="ratio ratio-16x9">
-                                <iframe src="https://www.youtube.com/embed/e0K3OjNHTtA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                {/* <div className='cards__body'>
-                                    <p>DIDI B - En Haut</p>
-                                </div> */}
-                            </div>
-                            <div className='cards'>
-                                <div className='cards__header'>
-                                <div class="ratio ratio-16x9">
-                                <iframe src="https://www.youtube.com/embed/e0K3OjNHTtA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                {/* <div className='cards__body'>
-                                    <p>DIDI B - En Haut</p>
-                                </div> */}
-                            </div>
+                             )}
                 </div>
               </div>
 
-              <div className='slider__part'>
-                <h5 className='slider__title'>Tendances actuelles</h5>
-                        <div className='slider__content'>
-                            <div className='cards'>
-                                <div className='cards__header'>
-                                <div class="ratio ratio-16x9">
-                                <iframe src="https://www.youtube.com/embed/e0K3OjNHTtA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                {/* <div className='cards__body'>
-                                    <p>DIDI B - En Haut</p>
-                                </div> */}
-                            </div>
-                            <div className='cards'>
-                                <div className='cards__header'>
-                                <div class="ratio ratio-16x9">
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/8dguvuJoJ1Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                {/* <div className='cards__body'>
-                                    <p>DIDI B - En Haut</p>
-                                </div> */}
-                            </div>
-                            <div className='cards'>
-                                <div className='cards__header'>
-                                <div class="ratio ratio-16x9">
-                                <iframe src="https://www.youtube.com/embed/e0K3OjNHTtA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                {/* <div className='cards__body'>
-                                    <p>DIDI B - En Haut</p>
-                                </div> */}
-                            </div>
-                            <div className='cards'>
-                                <div className='cards__header'>
-                                <div class="ratio ratio-16x9">
-                                <iframe src="https://www.youtube.com/embed/e0K3OjNHTtA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                {/* <div className='cards__body'>
-                                    <p>DIDI B - En Haut</p>
-                                </div> */}
-                            </div>
-                            <div className='cards'>
-                                <div className='cards__header'>
-                                <div class="ratio ratio-16x9">
-                                <iframe src="https://www.youtube.com/embed/e0K3OjNHTtA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                {/* <div className='cards__body'>
-                                    <p>DIDI B - En Haut</p>
-                                </div> */}
-                            </div>
-                </div>
-              </div>
-              <div className='slider__part'>
-                <h5 className='slider__title'>Séries incontournables</h5>
-                        <div className='slider__content'>
-                            <div className='cards'>
-                                <div className='cards__header'>
-                                <div class="ratio ratio-16x9">
-                                <iframe src="https://www.youtube.com/embed/e0K3OjNHTtA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                {/* <div className='cards__body'>
-                                    <p>DIDI B - En Haut</p>
-                                </div> */}
-                            </div>
-                            <div className='cards'>
-                                <div className='cards__header'>
-                                <div class="ratio ratio-16x9">
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/8dguvuJoJ1Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                {/* <div className='cards__body'>
-                                    <p>DIDI B - En Haut</p>
-                                </div> */}
-                            </div>
-                            <div className='cards'>
-                                <div className='cards__header'>
-                                <div class="ratio ratio-16x9">
-                                <iframe src="https://www.youtube.com/embed/e0K3OjNHTtA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                {/* <div className='cards__body'>
-                                    <p>DIDI B - En Haut</p>
-                                </div> */}
-                            </div>
-                            <div className='cards'>
-                                <div className='cards__header'>
-                                <div class="ratio ratio-16x9">
-                                <iframe src="https://www.youtube.com/embed/e0K3OjNHTtA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                {/* <div className='cards__body'>
-                                    <p>DIDI B - En Haut</p>
-                                </div> */}
-                            </div>
-                            <div className='cards'>
-                                <div className='cards__header'>
-                                <div class="ratio ratio-16x9">
-                                <iframe src="https://www.youtube.com/embed/e0K3OjNHTtA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                {/* <div className='cards__body'>
-                                    <p>DIDI B - En Haut</p>
-                                </div> */}
-                            </div>
-                </div>
-              </div>
-              <div className='slider__part'>
-                <h5 className='slider__title'>Animation</h5>
-                        <div className='slider__content'>
-                            <div className='cards'>
-                                <div className='cards__header'>
-                                <div class="ratio ratio-16x9">
-                                <iframe src="https://www.youtube.com/embed/e0K3OjNHTtA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                {/* <div className='cards__body'>
-                                    <p>DIDI B - En Haut</p>
-                                </div> */}
-                            </div>
-                            <div className='cards'>
-                                <div className='cards__header'>
-                                <div class="ratio ratio-16x9">
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/8dguvuJoJ1Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                {/* <div className='cards__body'>
-                                    <p>DIDI B - En Haut</p>
-                                </div> */}
-                            </div>
-                            <div className='cards'>
-                                <div className='cards__header'>
-                                <div class="ratio ratio-16x9">
-                                <iframe src="https://www.youtube.com/embed/e0K3OjNHTtA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                {/* <div className='cards__body'>
-                                    <p>DIDI B - En Haut</p>
-                                </div> */}
-                            </div>
-                            <div className='cards'>
-                                <div className='cards__header'>
-                                <div class="ratio ratio-16x9">
-                                <iframe src="https://www.youtube.com/embed/e0K3OjNHTtA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                {/* <div className='cards__body'>
-                                    <p>DIDI B - En Haut</p>
-                                </div> */}
-                            </div>
-                            <div className='cards'>
-                                <div className='cards__header'>
-                                <div class="ratio ratio-16x9">
-                                <iframe src="https://www.youtube.com/embed/e0K3OjNHTtA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                {/* <div className='cards__body'>
-                                    <p>DIDI B - En Haut</p>
-                                </div> */}
-                            </div>
-                </div>
-              </div>
            </div>
            <Footer/>
 

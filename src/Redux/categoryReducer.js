@@ -1,68 +1,34 @@
 const initialState = {
-    categories: [],
-    products: [],
-    newArrivages:[],
-    news:[
-        {
-            id:1,
-            title: 'Sweats',
-            img:'https://mistertee.fr/sites/default/files/styles/mistertee_product_display_medium/public/hoodie.jpg',
-            description:"Sweats Blanc",
-            price:"1000",
-            categories:"Sweats",
-            genre:"Homme",
-        },
-        {
-            id:2,
-            title: 'Sweats',
-            img:'https://www.kiabi.be/images/sweat-a-capuche-friends-bordeaux-femme-du-34-au-48-yt181_1_frb1.jpg',
-            description:"Sweats Marron",
-            price:"1000",
-            categories:"Sweats",
-            genre:"Homme",
-        },
-        {
-            id:3,
-            title: 'Sweats',
-            img:'https://mistertee.fr/sites/default/files/styles/mistertee_product_display_medium/public/hoodie.jpg',
-            description:"Sweats Blanc",
-            price:"1000",
-            categories:"Sweats",
-            genre:"Homme",
-        },
-        {
-            id:4,
-            title: 'Sweats',
-            img:'https://mistertee.fr/sites/default/files/styles/mistertee_product_display_medium/public/hoodie.jpg',
-            description:"Sweats Blanc",
-            price:"1000",
-            categories:"Sweats",
-            genre:"Homme",
-        },
+    Movies:[
+       {
+        id: 1,
+        title:'Django',
+        img:'https://i.ytimg.com/vi/gmH8DgvO7Kc/maxresdefault.jpg',
+        description:'Django 2023',
+        time:'1h20 min'
+       },
+       {
+        id: 2,
+        title:'Django 2',
+        img:'https://i.ytimg.com/vi/gmH8DgvO7Kc/maxresdefault.jpg',
+        description:'Django 2023',
+        time:'1h20 min'
+       },
+       {
+        id: 3,
+        title:'Transporteur',
+        img:'https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/E8CB67DA3665465F8F1165CF3387368C24F61F0407E80B71C6242A0D764439D4/scale?width=1200&aspectRatio=1.78&format=jpeg',
+        description:'Django 2023',
+        time:'1h20 min'
+       }
     ],
-    article:{},
 }
 
 export function categoryReducer(state = initialState, action) {
     switch (action.type) {
-        case "GET-CATEGORIES-SMART": {
+        case "GET-ALL-MOVIES": {
             return {
-                ...state,categories : action.payload
-            }
-        }
-        case "GET-ALL-ARTICLES": {
-            return {
-                ...state,products : action.payload
-            }
-        }
-        case "GET-ARTICLE": {
-            return {
-                ...state,article : action.payload
-            }
-        }
-        case "GET-NEW-ARRIVAGES": {
-            return {
-                ...state,newArrivages: action.payload
+                ...state,movies : action.payload
             }
         }
         default: {

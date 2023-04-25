@@ -2,7 +2,6 @@ import Navbar from "./Navbar";
 import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
-import { AddArticle, getAllArticles } from "../Redux/actions";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -16,13 +15,13 @@ export default function SearchingPage() {
     const dispatch = useDispatch()
 
   
-      useEffect(() => {
-          fetch('http://127.0.0.1:8080/products')
-          .then((res)=>res.json())
-          .then((products)=>{dispatch(getAllArticles(products))
-          })
-          .catch(e => { console.log(e)})
-          }, [items])
+    //   useEffect(() => {
+    //       fetch('http://127.0.0.1:8080/products')
+    //       .then((res)=>res.json())
+    //       .then((products)=>{dispatch(getAllArticles(products))
+    //       })
+    //       .catch(e => { console.log(e)})
+    //       }, [items])
   
   
        
@@ -64,7 +63,7 @@ export default function SearchingPage() {
                                                 <p className='product__price'>{item.price} FCFA</p>
                                                 <div className='button--block'>
                                                 {/* <Link className='link__btn' to={`/detail/${article._id}`}><button className='btn__buy'>Acheter</button></Link> */}
-                                                <button className='btn__add'onClick={() => AddArticle(item)}>Ajouter au panier</button>
+                                    
                                                     </div>  
                                             </div>
                                         </div> 

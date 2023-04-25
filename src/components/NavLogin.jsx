@@ -7,28 +7,14 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function NavLogin ({nav,setNav}) {
 
   const navigate = useNavigate();
-  // const notify = (e) => {
-  //   toast('Veuillez vous connecter svp !!', {
-  //     position: "top-right",
-  //     autoClose: 3001,
-  //     hideProgressBar: false,
-  //     closeOnClick: true,
-  //     pauseOnHover: true,
-  //     draggable: true,
-  //     progress: undefined,
-  //     theme: "light",
-  //     });
-  // };
+  
   const closeNav = ()=>{
     setNav(false)
   }
   const logout =()=>{
-    localStorage.clear();
-    navigate('/');
-    // notify('')
+    navigate('/login');
   }
 
-  const auth = localStorage.getItem("user");
 
   return (
     <div>
@@ -38,21 +24,37 @@ export default function NavLogin ({nav,setNav}) {
                                     <i className="fa-solid fa-xmark" onClick={closeNav}></i>
                                 </div>
 
-                            {/* <div className="col-3 col-md-12">
-                                 <Link to='/loginPage'><button className="btn__log"> Se connecter</button></Link>
-                            </div> */}
-                            {/* <Link className='liste' to='/loginPage'><i className="fa-solid fa-user"></i> Mon compte</Link> */}
                               <div className="user__part">
                                 {/* <p className='na'><i class="fa-solid fa-user"></i>  {JSON.parse(auth).email}</p> */}
                               </div>
+                              <div className="user__part">
+                                <div className="user__part__detail">
+                                <div className="user__part__left">
+                                   <div className="user__part__left__img">
+                                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL7q6Xxz10aPOmWfZPZMZGaXMpAV2MVFjTM0zZrCdBadCQIvfN_o597iR2LeDRZubFAxY&usqp=CAU" alt="" />
+                                   </div>
+                                </div>
+                                <div className="user__part__right">
+                                  <p className='na'><i class="fa-solid fa-user"></i> Koudou</p>
+                                </div>
+                                </div>
+                              </div>
                             <div className="user__part">
-                              <Link to='/userDetail' className='na'> <i class="fa-solid fa-user"></i> Votre Compte</Link>
+                              <Link to='/userDetail' className='na'> <i class="fa-solid fa-pen"></i> Gérer les profils</Link>
                             </div>
 
                             <div className="user__part">
-                            <Link to='/cart' className='na'><i class="fa-solid fa-cart-shopping"></i> Votre panier</Link>
+                              <Link to='/userDetail' className='na'> <i class="fa-solid fa-user"></i> Transférer un profil</Link>
                             </div>
-                            <Link to='/loginPage'><button className="btn--log" onClick={logout}><i class="fa-solid fa-right-from-bracket"></i> Logout</button></Link>
+
+                            <div className="user__part">
+                              <Link to='/userDetail' className='na'> <i class="fa-solid fa-user"></i> Compte</Link>
+                            </div>
+
+                            <div className="user__part">
+                              <Link to='/userDetail' className='na'> <i class="fa-solid fa-circle-info"></i> Centre d'aide</Link>
+                            </div>
+                            <Link to='/login'><button className="btn--log" onClick={logout}><i class="fa-solid fa-right-from-bracket"></i> Logout</button></Link>
              </div>
         
         </div>
