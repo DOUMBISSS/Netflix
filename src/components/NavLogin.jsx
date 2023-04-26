@@ -40,19 +40,19 @@ export default function NavLogin ({nav,setNav}) {
                                 </div>
                               </div>
                             <div className="user__part">
-                              <Link to='/userDetail' className='na'> <i class="fa-solid fa-pen"></i> Gérer les profils</Link>
+                              <Link to='/Accueil' className='na'> <i class="fa-solid fa-pen"></i> Gérer les profils</Link>
                             </div>
 
                             <div className="user__part">
-                              <Link to='/userDetail' className='na'> <i class="fa-solid fa-user"></i> Transférer un profil</Link>
+                              <Link to='/Accueil' className='na'> <i class="fa-solid fa-user"></i> Transférer un profil</Link>
                             </div>
 
                             <div className="user__part">
-                              <Link to='/userDetail' className='na'> <i class="fa-solid fa-user"></i> Compte</Link>
+                              <Link to='/Accueil' className='na'> <i class="fa-solid fa-user"></i> Compte</Link>
                             </div>
 
                             <div className="user__part">
-                              <Link to='/userDetail' className='na'> <i class="fa-solid fa-circle-info"></i> Centre d'aide</Link>
+                              <Link to='/Accueil' className='na'> <i class="fa-solid fa-circle-info"></i> Centre d'aide</Link>
                             </div>
                             <Link to='/login'><button className="btn--log" onClick={logout}><i class="fa-solid fa-right-from-bracket"></i> Logout</button></Link>
              </div>

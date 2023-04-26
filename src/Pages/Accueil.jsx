@@ -3,6 +3,7 @@ import 'animate.css';
 import Navbar from './Navbar';
 import { useSelector } from 'react-redux';
 import Footer from './Footer';
+import bgImage from '../video/background.mp4'
 
 export default function Accueil () {
     
@@ -42,43 +43,16 @@ const Movies = useSelector(state=>state.categoryReducer.Movies);
         <div>
                <Navbar/>
                <div className='hero--static--image'>
-                <div id="carouselExampleCaptions" class="carousel slide">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                    </div>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                        <img src="https://i.ytimg.com/vi/gmH8DgvO7Kc/maxresdefault.jpg" class="d-block w-100" alt="..."/>
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>First slide label</h5>
-                            <p>Some representative placeholder content for the first slide.</p>
+                    <video autoPlay loop muted>
+                        <source src={bgImage}/>
+                    </video>
+                    <div className='info-meta-layer'>
+                        <h1 className='title__movie'>DIDI B - En haut ft Jr Lamelo</h1>
+                        {/* <h5 className='supplemental__message'>Regardez Dxdx B maintenant</h5> */}
+                        <div className='button__layer'>
+                            <button className='btn__play'> <i class="fa-solid fa-play"></i> Lecture</button>
+                            <button className='btn__info'> <i class="fa-solid fa-circle-info"></i> infos</button>
                         </div>
-                        </div>
-                        <div class="carousel-item">
-                        <img src="..." class="d-block w-100" alt="..." />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Second slide label</h5>
-                            <p>Some representative placeholder content for the second slide.</p>
-                        </div>
-                        </div>
-                        <div class="carousel-item">
-                        <img src="..." class="d-block w-100" alt="..." />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Third slide label</h5>
-                            <p>Some representative placeholder content for the third slide.</p>
-                        </div>
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
                     </div>
                </div>
            <div>

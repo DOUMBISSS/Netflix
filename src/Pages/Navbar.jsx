@@ -2,11 +2,14 @@ import React from 'react';
 import { useState } from 'react';
 import {Link} from 'react-router-dom';
 import NavLogin from '../components/NavLogin';
+import Notif from '../components/Notif';
 
 
-function Navbar ({search,setSearch}) {
+function Navbar ({}) {
   const [nav , setNav] = useState(false);
   const [display,setDisplay]=useState(false);
+  const [notif,setNotif]=useState(false)
+
 
     const openLog = ()=>{
       setNav(true)
@@ -18,6 +21,9 @@ const afficher = ()=> {
   setDisplay (false)
 }
 
+  const showNotifications = () => {
+    setNotif(true)
+  }
     return (
       <div>
       <header>
@@ -33,11 +39,11 @@ const afficher = ()=> {
           </div>
           <div className="navbar--center">
             <div className="navbar--center--content">
-            <Link className='liste' to="/">Accueil</Link>
-              <Link className='liste' to='/'> Séries</Link>
-              <Link className='liste' to='/'> Films </Link>
-              <Link className='liste' to='/'>Nouveautés</Link>
-              <Link className='liste' to='/'> Ma liste</Link>
+            <Link className='liste' to="/Accueil">Accueil</Link>
+              <Link className='liste' to='/Accueil'> Séries</Link>
+              <Link className='liste' to='/Accueil'> Films </Link>
+              <Link className='liste' to='/Accueil'>Nouveautés</Link>
+              <Link className='liste' to='/Accueil'> Ma liste</Link>
             </div>
           </div>
 
@@ -48,8 +54,9 @@ const afficher = ()=> {
                             <i class="fa-solid fa-magnifying-glass"></i>
                             </div>
                             <div className='nav--items'>
-                              <i class="fa-solid fa-bell"></i>
+                              <i class="fa-solid fa-bell" onClick={showNotifications}></i>
                             </div>
+                            <Notif notif={notif} setNotif={setNotif}/>
                        <NavLogin nav={nav} setNav={setNav}/>
                        <div className='profil'>
                           <div className='profil__content'>
